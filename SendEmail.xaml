@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SendEmail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:um="clr-namespace:UiPath.Mail;assembly=UiPath.Mail.Activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:umabh="clr-namespace:UiPath.Mail.Activities.Business.HtmlEditor;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SendEmail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:um="clr-namespace:UiPath.Mail;assembly=UiPath.Mail.Activities" xmlns:umab="clr-namespace:UiPath.Mail.Activities.Business;assembly=UiPath.Mail.Activities" xmlns:umabh="clr-namespace:UiPath.Mail.Activities.Business.HtmlEditor;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_SubjectMail" Type="InArgument(x:String)" />
     <x:Property Name="in_BodyMail" Type="InArgument(x:String)" />
@@ -95,31 +95,38 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="589.9999999999999,800" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="919.9999999999999,1139.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="536,777.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="536,1116.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <umab:OutlookApplicationCard Account="fsardans@deloitte.com" AccountMismatchBehavior="UseDefaultEmailAccount" DisplayName="Use Desktop Outlook App" sap:VirtualizedContainerService.HintSize="502,694.6666666666666" sap2010:WorkflowViewState.IdRef="OutlookApplicationCard_1">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="502,175.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+        <ui:LogMessage.Message>
+          <InArgument x:TypeArguments="x:Object">
+            <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">"Start process SendEmail.xaml"</CSharpValue>
+          </InArgument>
+        </ui:LogMessage.Message>
+      </ui:LogMessage>
+      <umab:OutlookApplicationCard Account="fsardans@deloitte.com" AccountMismatchBehavior="UseDefaultEmailAccount" DisplayName="Use Desktop Outlook App" sap:VirtualizedContainerService.HintSize="502,692.6666666666666" sap2010:WorkflowViewState.IdRef="OutlookApplicationCard_1">
         <umab:OutlookApplicationCard.Body>
           <ActivityAction x:TypeArguments="um:IMailQuickHandle">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="um:IMailQuickHandle" Name="Outlook" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,484" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="468,475.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <umab:SendMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Body="An error was generated in the workflow Dispatcher.xaml. Error message:" BodyType="Text" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,424" sap2010:WorkflowViewState.IdRef="SendMailX_1" Importance="Normal" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="RPA - Proyect Olympics Games - Error Occurred" To="felipesardans@gmail.com" UseDocumentAsBody="False">
+              <umab:SendMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromText="{x:Null}" ReplyTo="{x:Null}" Body="An error was generated in the workflow Dispatcher.xaml. Error message:" BodyType="Text" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,415.3333333333333" sap2010:WorkflowViewState.IdRef="SendMailX_1" Importance="Normal" MaxBodyDocumentSizeMB="2" Sensitivity="Normal" Subject="RPA - Proyect Olympics Games - Error Occurred" To="felipesardans@gmail.com" UseDocumentAsBody="False">
                 <umab:SendMailX.Account>
                   <InArgument x:TypeArguments="um:IMailQuickHandle">
                     <CSharpValue x:TypeArguments="um:IMailQuickHandle" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">Outlook</CSharpValue>
@@ -143,6 +150,13 @@
           </ActivityAction>
         </umab:OutlookApplicationCard.Body>
       </umab:OutlookApplicationCard>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="502,166" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
+        <ui:LogMessage.Message>
+          <InArgument x:TypeArguments="x:Object">
+            <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">"End process SendEmail.xaml"</CSharpValue>
+          </InArgument>
+        </ui:LogMessage.Message>
+      </ui:LogMessage>
     </Sequence>
   </Sequence>
 </Activity>
